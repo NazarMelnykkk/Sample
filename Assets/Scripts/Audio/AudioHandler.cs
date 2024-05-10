@@ -3,23 +3,37 @@ using UnityEngine;
 
 public class AudioHandler : MonoBehaviour
 {
+    public static AudioHandler Instance;
 
-    [SerializeField] private Sound[] _ui;
-    [SerializeField] private Sound[] _musics;
-    [SerializeField] private Sound[] _SFX;
-    [SerializeField] private Sound[] _ambients;
+    [SerializeField] private SoundConfig[] _ui;
+    [SerializeField] private SoundConfig[] _musics;
+    [SerializeField] private SoundConfig[] _SFX;
+    [SerializeField] private SoundConfig[] _ambients;
 
     [SerializeField] private AudioSource _uiAudioSource;
     [SerializeField] private AudioSource _musicAudioSource;
     [SerializeField] private AudioSource _SFXAudioSource;
     [SerializeField] private AudioSource _ambientAudioSource;
 
-    public void PlaySound(SoundType type, string soundName)
+    private void Awake()
     {
-        Sound currentSound = GetSoundByType(type, soundName);
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+    }
+
+    public void PlaySound(SoundType type, string soundID)
+    {
+        Sound currentSound = GetSoundByType(type, soundID);
         if (currentSound == null)
         {
-            Debug.Log($"Sound {soundName} of type {type} not found");
+            Debug.Log($"Sound {soundID} of type {type} not found");
             return;
         }
 
@@ -31,12 +45,13 @@ public class AudioHandler : MonoBehaviour
         }
     }
 
-    public void PlaySound(Sound currentSound)
+    public void PlaySound(SoundConfig config)
     {
+        Sound currentSound = config.Sound;
 
         if (currentSound == null)
         {
-            Debug.Log($"Sound {currentSound.SoundName} of type {currentSound.Type} not found");
+            Debug.Log($"Config {config.name} not found");
             return;
         }
 
@@ -86,17 +101,24 @@ public class AudioHandler : MonoBehaviour
 
     private Sound GetSoundByType(SoundType type, string soundName)
     {
-        Sound[] soundsArray = GetSoundsArrayByType(type);
+        SoundConfig[] soundsArray = GetSoundsArrayByType(type);
         if (soundsArray == null)
         {
             Debug.Log($"Sounds of type {type} not found");
             return null;
         }
 
-        return Array.Find(soundsArray, currentSound => currentSound.SoundName == soundName);
+        SoundConfig foundSoundConfig = Array.Find(soundsArray, currentSound => currentSound.Sound.Name == soundName);
+        if (foundSoundConfig == null)
+        {
+            Debug.Log($"Sound {soundName} of type {type} not found");
+            return null;
+        }
+
+        return foundSoundConfig.Sound;
     }
 
-    private Sound[] GetSoundsArrayByType(SoundType type)
+    private SoundConfig[] GetSoundsArrayByType(SoundType type)
     {
         switch (type)
         {
