@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da288884e0feb554daed6d316c66e212, type: 3}
-  m_Name: UIClick
+  m_Name: Tick2
   m_EditorClassIdentifier: 
-  ID: UIClick
   Sound:
-    Name: UIClick
-    Type: 0
-    AudioClip: {fileID: 8300000, guid: 3608cd439b81f8a4bb71a1f84ffa43bb, type: 3}
-    MinPitch: 0.8
-    MaxPitch: 1.2
+    Name: Tick2
+    Type: 4
+    AudioClip: {fileID: 8300000, guid: 43186eb953e63e546b2c31cb280f58d8, type: 3}
+    MinPitch: 1
+    MaxPitch: 1

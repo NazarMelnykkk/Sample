@@ -192,11 +192,11 @@ public class AudioHandler : MonoBehaviour, IDataPersistence
 
                 if (type == SoundType.Master)
                 {
-                    soundData = new SoundData(type, AudioListener.volume);
+                    soundData = new SoundData(AudioListener.volume);
                 }
                 else
                 {
-                    soundData = new SoundData(type, GetAudioSourceByType(type).volume);
+                    soundData = new SoundData(GetAudioSourceByType(type).volume);
                 }
 
                 data.SoundsData.SoundVolumeData.Add(id, soundData);

@@ -13,12 +13,10 @@ public class SoundsData
     [System.Serializable]
     public class SoundData
     {
-        public SoundType Type;
         public float Volume;
 
-        public SoundData(SoundType type , float volume)
+        public SoundData(float volume)
         {
-            Type = type;
             Volume = volume;
         }
     }

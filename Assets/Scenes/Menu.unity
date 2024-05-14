@@ -995,6 +995,7 @@ MonoBehaviour:
   _sounds:
   - {fileID: 802142307}
   - {fileID: 1279934399}
+  - {fileID: 1175629429}
 --- !u!1 &214498423
 GameObject:
   m_ObjectHideFlags: 0
@@ -2071,12 +2072,12 @@ PrefabInstance:
     - target: {fileID: 4882744159073912595, guid: 4521ddf778814c546b4a53a64273e5d2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 250
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4882744159073912595, guid: 4521ddf778814c546b4a53a64273e5d2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -255
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4882744159073912595, guid: 4521ddf778814c546b4a53a64273e5d2,
         type: 3}
@@ -3078,12 +3079,12 @@ PrefabInstance:
     - target: {fileID: 4882744159073912595, guid: 4521ddf778814c546b4a53a64273e5d2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 250
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4882744159073912595, guid: 4521ddf778814c546b4a53a64273e5d2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -765
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4882744159073912595, guid: 4521ddf778814c546b4a53a64273e5d2,
         type: 3}
@@ -3537,7 +3538,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1584387657
 RectTransform:
   m_ObjectHideFlags: 0
