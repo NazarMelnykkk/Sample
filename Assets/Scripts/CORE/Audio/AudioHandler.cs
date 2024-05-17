@@ -181,7 +181,7 @@ public class AudioHandler : MonoBehaviour, IDataPersistence
 
             foreach (SoundType type in Enum.GetValues(typeof(SoundType)))
             {
-                string id = type.ToString(); ;
+                string id = type.ToString();
 
                 if (data.SoundsData.SoundVolumeData.ContainsKey(id) == true)
                 {

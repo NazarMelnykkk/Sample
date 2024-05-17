@@ -1687,6 +1687,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentProfileID: WheleFortune.json
+  _saveObjects:
+  - {fileID: 1901896171}
 --- !u!1 &1078578693 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1013251219786716, guid: 160be82451391f6448834ec65286e007,

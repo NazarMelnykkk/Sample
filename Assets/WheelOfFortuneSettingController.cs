@@ -28,6 +28,8 @@ namespace WheleOfFortune
                 WheelFortuneSettingData wheleData;
 
                 wheleData = new WheelFortuneSettingData(WheelSize, RotatePower, StoppingPower, RandomizationCoefficient, CurrentBet);
+
+                data.WheelFortuneSettingsData.WheelFortuneData.Remove(name);
                 data.WheelFortuneSettingsData.WheelFortuneData.Add(name, wheleData);
             }
         }

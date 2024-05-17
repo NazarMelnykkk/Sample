@@ -1,7 +1,9 @@
 using System;
 using UnityEngine;
+using static PointsData;
+using static SoundsData;
 
-public class PointHandler : MonoBehaviour
+public class PointHandler : MonoBehaviour, IDataPersistence
 {
     [Header("Actions")]
     public Action OnValueChangeEvent;
@@ -9,40 +11,55 @@ public class PointHandler : MonoBehaviour
     [Header("Values")]
     public int Points;
 
-    private void Start()
-    {
-        LoadData();
-    }
-
-    public void LoadData()
-    {
-        Points = PlayerPrefs.GetInt("Points", 0);
-        OnValueChangeEvent?.Invoke();
-    }
-
-    public void SaveData()
-    {
-        PlayerPrefs.SetInt("Points", Points);
-        PlayerPrefs.Save();
-    }
-
-    private void OnApplicationQuit()
-    {
-        SaveData();
-    }
-
     public void AddPoints(int amount)
     {
         Points += amount;
-        SaveData();
         OnValueChangeEvent?.Invoke();
     }
 
-    // Method to set points and trigger event
-    public void SetPoints(int newPoints)
+    public int GetPoints(int amount)
     {
-        Points = newPoints;
-        SaveData();
+        if (Points == 0)
+        {
+            return 0;
+        }
+
+        if (Points < amount)
+        {
+            return 0;
+        }
+
+        Points = Points - amount;
+        OnValueChangeEvent?.Invoke();
+        return amount;
+    }
+
+    public void SaveData(GameData data)
+    {
+        if (data == null)
+        {
+            return;
+        }
+
+        PointData pointData = new PointData(Points);
+
+        data.PointsData.PointsValueData.Remove(name);
+        data.PointsData.PointsValueData.Add(name,pointData);
+    }
+
+    public void LoadData(GameData data)
+    {
+        if (data == null && data.PointsData == null)
+        {
+            return;
+        }
+
+        PointData pointData;
+
+        data.PointsData.PointsValueData.TryGetValue(name, out pointData);
+
+        Points = pointData.Points;
+
         OnValueChangeEvent?.Invoke();
     }
 }

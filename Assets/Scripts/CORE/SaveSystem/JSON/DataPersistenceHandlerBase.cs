@@ -6,7 +6,7 @@ public class DataPersistenceHandlerBase : MonoBehaviour
 {
     protected GameData _gameData;
     protected FileDataHandler _fileDataHandler;
-    public string CurrentProfileID = ".json";
+    protected string CurrentProfileID = "Plague.json";
 
     protected virtual void Awake()
     {

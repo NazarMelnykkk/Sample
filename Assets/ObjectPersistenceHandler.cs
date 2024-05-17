@@ -1,11 +1,16 @@
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.VFX;
 
 public class ObjectPersistenceHandler : DataPersistenceHandlerBase
 {
-     public List<IDataPersistence> _saveObjects; 
+    [Tooltip("Object with IDataPersistence")][SerializeField, GameObjectOfType(typeof(IDataPersistence))] List<GameObject> _saveObjects;
+
+    protected override void Awake()
+    {
+        base.Awake();
+    }
 
     protected override void LoadGame()
     {
@@ -18,7 +23,7 @@ public class ObjectPersistenceHandler : DataPersistenceHandlerBase
             return;
         }
 
-        foreach (IDataPersistence dataPersistenceObject in _saveObjects)
+        foreach (IDataPersistence dataPersistenceObject in FindAllDataPersistenceObjects())
         {
             dataPersistenceObject.LoadData(_gameData);
         }
@@ -32,12 +37,25 @@ public class ObjectPersistenceHandler : DataPersistenceHandlerBase
             return;
         }
 
-        foreach (IDataPersistence dataPersistenceObject in _saveObjects)
+        foreach (IDataPersistence dataPersistenceObject in FindAllDataPersistenceObjects())
         {
             dataPersistenceObject.SaveData(_gameData);
         }
 
         _fileDataHandler.Save(_gameData, CurrentProfileID);
 
+    }
+
+    protected override List<IDataPersistence> FindAllDataPersistenceObjects()
+    {
+        List<IDataPersistence> dataPersistencesObjects = new List<IDataPersistence>();
+
+        foreach (Object obj in _saveObjects)
+        {
+            IDataPersistence interfave = obj.GetComponent<IDataPersistence>();
+            dataPersistencesObjects.Add(interfave);
+        }
+
+        return dataPersistencesObjects;
     }
 }
