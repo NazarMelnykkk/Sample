@@ -16,15 +16,13 @@ public class WheelFortuneSettingsData
         public float RotatePower;
         public float StoppingPower;
         public float RandomizationCoefficient;
-        public float CurrentBet;
   
-        public WheelFortuneSettingData(float size, float rotatePower, float stoppingPower, float randomizationCoefficient, float currentBet)
+        public WheelFortuneSettingData(float size, float rotatePower, float stoppingPower, float randomizationCoefficient)
         {
             Size = size;
             RotatePower = rotatePower;
             StoppingPower = stoppingPower;
             RandomizationCoefficient = randomizationCoefficient;
-            CurrentBet = currentBet;
         }
     }
 }

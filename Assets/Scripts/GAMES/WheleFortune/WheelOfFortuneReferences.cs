@@ -9,5 +9,6 @@ namespace WheleOfFortune
         public WheelOfFortuneController WheelOfFortuneController;
         public PieceGenerator PieceGenerator;
         public WheelOfFortuneSoundController WheelOfFortuneSoundController;
+        public BetController BetController;
     }
 }

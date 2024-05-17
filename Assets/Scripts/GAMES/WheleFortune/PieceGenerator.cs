@@ -30,6 +30,12 @@ namespace WheleOfFortune
 
         private float _pieceAngle;
         private float _halfPieceAngle;
+
+        private void Start()
+        {
+            Generate();
+        }
+
         public void Generate()
         {
             _pieceAngle = 360f / _wheelOfFortuneReferences.WheelOfFortuneSettingController.WheelPieces.Length;

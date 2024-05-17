@@ -20,29 +20,26 @@ namespace WheleOfFortune
         {
             base.OnEnable();
 
-            _wheelOfFortuneController.OnSpinStart(() =>
-            {
-                Debug.Log("Spin started");
-                ChangeButtonColor(false);
-            });
-
-            _wheelOfFortuneController.OnSpinEnd(WheelPiece =>
-            {
-                Debug.Log("Spin ended");
-                ChangeButtonColor(true);
-            });
+            _wheelOfFortuneController.OnSpinStartEvent += Deactivate;
+            _wheelOfFortuneController.OnSpinEndEvent += Activate;
         }
 
-        public void ChangeButtonColor(bool canSpin)
+        protected override void OnDisable()
         {
-            if (canSpin == true)
-            {
-                _image.color = _true;
-            }
-            else
-            {
-                _image.color = _false;
-            }
+            base.OnDisable();
+
+            _wheelOfFortuneController.OnSpinStartEvent -= Deactivate;
+            _wheelOfFortuneController.OnSpinEndEvent -= Activate;
+        }
+
+        public void Activate()
+        {
+            _image.color = _true;
+        }
+
+        public void Deactivate()
+        {
+            _image.color = _false;
         }
     }
 }

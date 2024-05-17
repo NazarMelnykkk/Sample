@@ -3,13 +3,13 @@
 public class GameData
 {
     public SoundsData SoundsData;
-    public PointsData PointsData;
+    public CoinsData CoinsData;
     public WheelFortuneSettingsData WheelFortuneSettingsData;
 
     public GameData()
     {
         SoundsData = new SoundsData();
-        PointsData = new PointsData();
+        CoinsData = new CoinsData();
         WheelFortuneSettingsData = new WheelFortuneSettingsData();
     }
 }

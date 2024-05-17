@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,18 +20,24 @@ namespace WheleOfFortune
 
         private void OnEnable()
         {
-            _wheelOfFortuneReferences.WheelOfFortuneController.OnSpinStart(() =>
-            {
-                _soundCoroutine = StartCoroutine(SoundCoroutine());
-            });
+            _wheelOfFortuneReferences.WheelOfFortuneController.OnSpinStartEvent += StartPlay;
+            _wheelOfFortuneReferences.WheelOfFortuneController.OnSpinEndEvent += StopPlay;         
+        }
 
-            _wheelOfFortuneReferences.WheelOfFortuneController.OnSpinEnd(WheelPiece =>
-            {
-                if (_soundCoroutine != null)
-                {
-                    StopCoroutine(_soundCoroutine);
-                }
-            });
+        private void OnDisable()
+        {
+            _wheelOfFortuneReferences.WheelOfFortuneController.OnSpinStartEvent -= StartPlay;
+            _wheelOfFortuneReferences.WheelOfFortuneController.OnSpinEndEvent -= StopPlay;
+        }
+
+        private void StartPlay()
+        {
+            _soundCoroutine = StartCoroutine(SoundCoroutine());
+        }
+
+        private void StopPlay()
+        {
+            StopCoroutine(_soundCoroutine);
         }
 
         private IEnumerator SoundCoroutine()
@@ -55,7 +62,7 @@ namespace WheleOfFortune
 
         public void PlayTickSound()
         {
-            int randomIndex = Random.Range(0, _tickSounds.Count);
+            int randomIndex = UnityEngine.Random.Range(0, _tickSounds.Count);
             AudioHandler.Instance.PlaySound(_tickSounds[randomIndex]);
         }
     }

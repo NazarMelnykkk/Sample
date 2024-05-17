@@ -2,8 +2,8 @@
 
 namespace WheleOfFortune
 {
-    [System.Serializable]
-    public class WheelPiece
+    [CreateAssetMenu(menuName = "Config/WheelPiece")]
+    public class WheelPiece : ScriptableObject
     {
         public UnityEngine.Sprite Icon;
         public string Label;

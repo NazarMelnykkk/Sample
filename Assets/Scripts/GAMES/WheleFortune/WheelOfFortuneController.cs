@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine.Events;
 using System.Collections;
+using System;
 
 namespace WheleOfFortune
 {
@@ -14,8 +15,8 @@ namespace WheleOfFortune
         [SerializeField] private Rigidbody2D _rb;
 
         [Header("Actions")]
-        private UnityAction _onSpinStartEvent;
-        private UnityAction<WheelPiece> _onSpinEndEvent;
+        public Action OnSpinStartEvent;
+        public Action OnSpinEndEvent;
 
         [Header("boolean")]
         public bool _isSpinning = false;
@@ -34,23 +35,13 @@ namespace WheleOfFortune
         }
         public void Spin()
         {
-            if (_isSpinning == false)
+            if (_isSpinning == false )
             {
                 _isSpinning = true;
-                _onSpinStartEvent?.Invoke();
+                OnSpinStartEvent?.Invoke();
                 _rb.AddTorque(Randomication(_wheelOfFortuneReferences.WheelOfFortuneSettingController.RotatePower));
                 StartCoroutine(SpinDelayCoroutine());
             }
-        }
-
-        public void OnSpinStart(UnityAction action)
-        {
-            _onSpinStartEvent = action;
-        }
-
-        public void OnSpinEnd(UnityAction<WheelPiece> action)
-        {
-            _onSpinEndEvent = action;
         }
 
         private IEnumerator SpinDelayCoroutine()
@@ -72,15 +63,17 @@ namespace WheleOfFortune
 
             _rb.angularVelocity = 0;
             WheelPiece selectedPiece = _wheelOfFortuneReferences.PieceGenerator.GetSelectedPiece();
-            Debug.Log($"Selected Piece: {selectedPiece.Label}, Amount: {selectedPiece.Multiplier}");
+            //Debug.Log($"Selected Piece: {selectedPiece.Label}, Amount: {selectedPiece.Multiplier}");
 
-            _onSpinEndEvent?.Invoke(selectedPiece);
+            _wheelOfFortuneReferences.BetController.WinningCalculation(selectedPiece.Multiplier);
+
             _isSpinning = false;
+            OnSpinEndEvent?.Invoke();
         }
 
         private float Randomication(float value)
         {
-            float randomValue = Random.Range(value - _wheelOfFortuneReferences.WheelOfFortuneSettingController.RandomizationCoefficient, value + _wheelOfFortuneReferences.WheelOfFortuneSettingController.RandomizationCoefficient);
+            float randomValue = UnityEngine.Random.Range(value - _wheelOfFortuneReferences.WheelOfFortuneSettingController.RandomizationCoefficient, value + _wheelOfFortuneReferences.WheelOfFortuneSettingController.RandomizationCoefficient);
 
             return randomValue;
         }

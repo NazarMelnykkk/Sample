@@ -1291,7 +1291,7 @@ GameObject:
   - component: {fileID: 1722844825}
   - component: {fileID: 1722844826}
   m_Layer: 0
-  m_Name: PointHandler
+  m_Name: Coin Handler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1324,7 +1324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc4c74111c3ea7b439e974fb82bddf30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Points: 0
+  Coins: 0
 --- !u!1 &1800152673
 GameObject:
   m_ObjectHideFlags: 0
