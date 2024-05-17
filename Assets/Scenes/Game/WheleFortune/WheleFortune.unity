@@ -1162,12 +1162,12 @@ PrefabInstance:
     - target: {fileID: 224511889338460380, guid: 160be82451391f6448834ec65286e007,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.569
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224511889338460380, guid: 160be82451391f6448834ec65286e007,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.569
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224511889338460380, guid: 160be82451391f6448834ec65286e007,
         type: 3}
@@ -1642,6 +1642,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab8b4e5ebce715644abeea8e5a37758c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1031919248
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1031919249}
+  - component: {fileID: 1031919250}
+  m_Layer: 0
+  m_Name: ObjectPersistenceHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1031919249
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031919248}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1722844825}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1031919250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031919248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf3459dc21bae8141ae120539020883f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentProfileID: WheleFortune.json
 --- !u!1 &1078578693 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1013251219786716, guid: 160be82451391f6448834ec65286e007,
@@ -2164,6 +2209,38 @@ RectTransform:
   m_AnchoredPosition: {x: 397.5, y: -50}
   m_SizeDelta: {x: 795, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1722844824
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1722844825}
+  m_Layer: 0
+  m_Name: ---[System]---
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1722844825
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722844824}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 654.731, y: 441.44043, z: -4.205562}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1031919249}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1726198830
 GameObject:
   m_ObjectHideFlags: 0
@@ -2493,8 +2570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4bebc7bfe9d394592353853ce4bc26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _wheelOfFortuneSettingController: {fileID: 1901896176}
-  _pieceGenerator: {fileID: 1901896174}
+  _wheelOfFortuneReferences: {fileID: 1901896177}
   _spinningButton: {fileID: 345513960}
   _rb: {fileID: 1078578697}
   _isSpinning: 0
@@ -2510,8 +2586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8660c73082a734080d419cf0672227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _wheelOfFortuneSettingController: {fileID: 1901896176}
-  _wheelOfFortuneController: {fileID: 1901896173}
+  _wheelOfFortuneReferences: {fileID: 1901896177}
   _pickerWheelTransform: {fileID: 66935692}
   _wheelPiecePrefab: {fileID: 1013547879587396, guid: a10fef7bc23b5a64a929387e97c9b936,
     type: 3}
@@ -2534,8 +2609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1374f576142170445bce447ac21f1ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _wheelOfFortuneController: {fileID: 1901896173}
-  _pieceGenerator: {fileID: 1901896174}
+  _wheelOfFortuneReferences: {fileID: 1901896177}
   _wheelCircle: {fileID: 1078578694}
   _tickSounds:
   - {fileID: 11400000, guid: 1fe314dd6d21ade438efa661a6855526, type: 2}
@@ -2551,9 +2625,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cadd33e976dc39469cab7b6bc42b0c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _wheelOfFortuneController: {fileID: 1901896173}
-  _pieceGenerator: {fileID: 1901896174}
-  _wheelSize: 1.569
+  _wheelOfFortuneReferences: {fileID: 1901896177}
+  WheelSize: 1
+  RotatePower: 1000
+  StoppingPower: 600
+  RandomizationCoefficient: 100
+  CurrentBet: 10
   WheelPieces:
   - Icon: {fileID: 21300000, guid: 6e980baa502e72148bbc79fb42c81d10, type: 3}
     Label: X1
@@ -2579,6 +2656,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d95172bcfffccfb42b5359d770e3f629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WheelOfFortuneSettingController: {fileID: 1901896176}
+  WheelOfFortuneController: {fileID: 1901896173}
+  PieceGenerator: {fileID: 1901896174}
+  WheelOfFortuneSoundController: {fileID: 1901896175}
 --- !u!1001 &1926374711
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3011,4 +3092,5 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1722844825}
   - {fileID: 1993699404}

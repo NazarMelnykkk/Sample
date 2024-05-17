@@ -1,45 +1,49 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ButtonSpin : ButtonClickedBase
+namespace WheleOfFortune 
 {
-    [Header("Components")]
-    [SerializeField] private WheelOfFortuneController _wheelOfFortuneController;
-    [SerializeField] private Image _image;
-
-    [SerializeField] private Color _true, _false;
-
-    public override void Click()
+    public class ButtonSpin : ButtonClickedBase
     {
-        base.Click();
-    }
+        [Header("Components")]
+        [SerializeField] private WheelOfFortuneController _wheelOfFortuneController;
+        [SerializeField] private Image _image;
 
-    protected override void OnEnable()
-    {
-        base.OnEnable();
+        [SerializeField] private Color _true, _false;
 
-        _wheelOfFortuneController.OnSpinStart(() =>
+        public override void Click()
         {
-            Debug.Log("Spin started");
-            ChangeButtonColor(false);
-        });
-
-        _wheelOfFortuneController.OnSpinEnd(WheelPiece =>
-        {
-            Debug.Log("Spin ended");
-            ChangeButtonColor(true);
-        });
-    }
-
-    public void ChangeButtonColor(bool canSpin)
-    {
-        if(canSpin == true)
-        {
-            _image.color = _true;
+            base.Click();
         }
-        else
+
+        protected override void OnEnable()
         {
-            _image.color = _false;
+            base.OnEnable();
+
+            _wheelOfFortuneController.OnSpinStart(() =>
+            {
+                Debug.Log("Spin started");
+                ChangeButtonColor(false);
+            });
+
+            _wheelOfFortuneController.OnSpinEnd(WheelPiece =>
+            {
+                Debug.Log("Spin ended");
+                ChangeButtonColor(true);
+            });
+        }
+
+        public void ChangeButtonColor(bool canSpin)
+        {
+            if (canSpin == true)
+            {
+                _image.color = _true;
+            }
+            else
+            {
+                _image.color = _false;
+            }
         }
     }
 }
+

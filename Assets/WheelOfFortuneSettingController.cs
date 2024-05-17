@@ -1,85 +1,63 @@
-using EasyUI.PickerWheelUI;
+using System;
 using UnityEngine;
+using static WheelFortuneSettingsData;
 
-public class WheelOfFortuneSettingController : MonoBehaviour
+namespace WheleOfFortune 
 {
-    [Header("Components")]
-    [SerializeField] private WheelOfFortuneController _wheelOfFortuneController;
-    [SerializeField] private PieceGenerator _pieceGenerator;
-
-    [Header("Configuration")]
-    [SerializeField][Range(0.2f, 2f)] private float _wheelSize = 1f;
-
-    private float _rotatePower = 1000f;
-    private float _stoppingPower = 600f;
-    private float _randomizationCoefficient = 100f;
-
-    [Header("Pieces")]
-    public WheelPiece[] WheelPieces;
-
-    private void OnEnable()
+    public class WheelOfFortuneSettingController : MonoBehaviour, IDataPersistence
     {
-        
+        [Header("Components")]
+        [SerializeField] private WheelOfFortuneReferences _wheelOfFortuneReferences;
+
+        [Header("Configuration")]
+        [Range(0.2f, 2f)] public float WheelSize = 1f;
+
+        public float RotatePower = 1000f;
+        public float StoppingPower = 600f;
+        public float RandomizationCoefficient = 100f;
+
+        public float CurrentBet = 10;
+
+        [Header("Pieces")]
+        public WheelPiece[] WheelPieces;
+
+        public void SaveData(GameData data)
+        {
+            if (data != null)
+            {
+                WheelFortuneSettingData wheleData;
+
+                wheleData = new WheelFortuneSettingData(WheelSize, RotatePower, StoppingPower, RandomizationCoefficient, CurrentBet);
+                data.WheelFortuneSettingsData.WheelFortuneData.Add(name, wheleData);
+            }
+        }
+
+        public void LoadData(GameData data)
+        {
+            if (data != null && data.WheelFortuneSettingsData != null)
+            {
+                WheelFortuneSettingData wheleData;
+
+                data.WheelFortuneSettingsData.WheelFortuneData.TryGetValue(name, out wheleData);
+
+                WheelSize = wheleData.Size;
+
+                RotatePower = wheleData.RotatePower;
+                StoppingPower = wheleData.StoppingPower;
+                RandomizationCoefficient = wheleData.RandomizationCoefficient;
+
+                CurrentBet = wheleData.CurrentBet;
+            }
+
+            _wheelOfFortuneReferences.PieceGenerator.Generate();
+        }
+
+        private void OnValidate()
+        {
+            _wheelOfFortuneReferences.PieceGenerator.ChangeSize();
+        }
     }
 
-    private void OnDisable()
-    {
-        
-    }
-
-    public float GetSize()
-    {
-        return _wheelSize;
-    }
-
-    public void SetSize(float size)
-    {
-
-    }
-
-    public WheelPiece[] GetPieces()
-    {
-        return WheelPieces;
-    }
-
-    public void SetPieces()
-    {
-        
-    }
-
-    public void SetRotatePower()
-    {
-
-    }
-
-    public float GetRotatePower()
-    {
-        return _rotatePower;
-    }
-
-    public void SetStoppingPower()
-    {
-
-    }
-
-    public float GetStoppingPower()
-    {
-        return _stoppingPower;
-    }
-
-    public void SetRandomizationCoefficientr()
-    {
-
-    }
-
-    public float GetRandomizationCoefficientr()
-    {
-        return _randomizationCoefficient;
-    }
-
-    private void OnValidate()
-    {
-        _pieceGenerator.ChangeSize();
-    }
 
 }
+

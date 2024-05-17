@@ -1,12 +1,12 @@
 
-
 [System.Serializable]
 public class GameData
 {
     public SoundsData SoundsData;
+    public WheelFortuneSettingsData WheelFortuneSettingsData;
 
     public GameData()
     {
-        SoundsData = new SoundsData();
+        WheelFortuneSettingsData = new WheelFortuneSettingsData();
     }
 }

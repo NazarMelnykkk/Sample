@@ -1,8 +1,6 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using static SoundsData;
-using static UnityEditor.Progress;
 
 public class AudioHandler : MonoBehaviour, IDataPersistence
 {

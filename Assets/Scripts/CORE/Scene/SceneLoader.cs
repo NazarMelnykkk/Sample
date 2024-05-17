@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,8 +6,13 @@ public class SceneLoader : MonoBehaviour
 {
     public static SceneLoader Instance;
 
+    [Header("Scene")]
     [SerializeField] private SceneField _systemScene;
     [SerializeField] private SceneField _menuScene;
+
+    [Header("Actions")]
+    public Action OnSceneLoadEvent;
+    public Action OnSceneUnloadEvent;
 
     private void Awake()
     {

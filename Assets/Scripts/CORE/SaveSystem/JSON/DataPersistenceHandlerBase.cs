@@ -2,36 +2,28 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class DataPersistenceHandler : MonoBehaviour
+public class DataPersistenceHandlerBase : MonoBehaviour
 {
-    private GameData _gameData;
-    private FileDataHandler _fileDataHandler;
-    public string CurrentProfileID = "Player";
+    protected GameData _gameData;
+    protected FileDataHandler _fileDataHandler;
+    public string CurrentProfileID = ".json";
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _fileDataHandler = new FileDataHandler(Application.persistentDataPath, CurrentProfileID);
-
     }
 
-    public void Start()
+    protected virtual void Start()
     {
-
-/*        if (GlobalPersistanceHandler.Instance.gameLoadMode == GameLoadMode.NewGame)
-        {
-            NewGame();
-            return;
-        }*/
-
         LoadGame();
     }
 
-    public void NewGame()
+    protected virtual void NewGame()
     {
         _gameData = new GameData();
     }
 
-    public void LoadGame()
+    protected virtual void LoadGame()
     {
         _gameData = _fileDataHandler.Load(CurrentProfileID);
 
@@ -48,7 +40,7 @@ public class DataPersistenceHandler : MonoBehaviour
         }
     }
 
-    public void SaveGame()
+    protected virtual void SaveGame()
     {
         if (_gameData == null)
         {
@@ -65,25 +57,25 @@ public class DataPersistenceHandler : MonoBehaviour
 
     }
 
-    private void OnApplicationQuit()
+    protected virtual void OnApplicationQuit()
     {
         SaveGame();
     }
 
-    private List<IDataPersistence> FindAllDataPersistenceObjects()
+    protected virtual List<IDataPersistence> FindAllDataPersistenceObjects()
     {
         IEnumerable<IDataPersistence> dataPersistencesObjects = FindObjectsOfType<MonoBehaviour>(true).OfType<IDataPersistence>();
 
         return new List<IDataPersistence>(dataPersistencesObjects);
     }
 
-    public bool HasGameData()
+    protected virtual bool HasGameData()
     {
         return _gameData != null;
     }
 
 
-    public Dictionary<string, GameData> GetAllprofilesGameData()
+    protected virtual Dictionary<string, GameData> GetAllprofilesGameData()
     {
         return _fileDataHandler.LoadAllProfiles();
     }

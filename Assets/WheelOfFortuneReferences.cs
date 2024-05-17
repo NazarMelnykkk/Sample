@@ -1,9 +1,13 @@
 using UnityEngine;
 
-public class WheelOfFortuneReferences : MonoBehaviour
+namespace WheleOfFortune
 {
-    [Header("References")]
-    public WheelOfFortuneSettingController WheelOfFortuneSettingController;
-    public WheelOfFortuneController WheelOfFortuneController;
-    public PieceGenerator PieceGenerator;
+    public class WheelOfFortuneReferences : MonoBehaviour
+    {
+        [Header("References")]
+        public WheelOfFortuneSettingController WheelOfFortuneSettingController;
+        public WheelOfFortuneController WheelOfFortuneController;
+        public PieceGenerator PieceGenerator;
+        public WheelOfFortuneSoundController WheelOfFortuneSoundController;
+    }
 }
