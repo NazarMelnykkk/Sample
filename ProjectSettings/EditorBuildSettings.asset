@@ -9,12 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/System.unity
     guid: 54fb7b1dd91f8214a9e9841242e61458
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: c2834f754bedfaa4d9f2ecdb2bad4171
+    path: Assets/Scenes/Game/FlappyBird/FlappyBird.unity
+    guid: c02d645b15a310c499a27e26c4819b95
   - enabled: 1
-    path: Assets/Scenes/Game/WheleFortune/WheleFortune.unity
-    guid: de4fa56a630c5d149ae20a335bfee5b4
+    path: Assets/Scenes/Menu.unity
+    guid: 134fb0b25c5aebb4b8858f1a92930632
   - enabled: 1
     path: Assets/Scenes/UI.unity
     guid: a44cdead97aaab8408067ec62b07781f
+  - enabled: 1
+    path: Assets/Scenes/Game/WheleFortune/WheleFortune.unity
+    guid: de4fa56a630c5d149ae20a335bfee5b4
   m_configObjects: {}

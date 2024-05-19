@@ -343,7 +343,7 @@ PrefabInstance:
     - target: {fileID: 2005212985874414670, guid: 4521ddf778814c546b4a53a64273e5d2,
         type: 3}
       propertyPath: m_text
-      value: NONE
+      value: Flappy bird
       objectReference: {fileID: 0}
     - target: {fileID: 4882744159073912595, guid: 4521ddf778814c546b4a53a64273e5d2,
         type: 3}
@@ -448,12 +448,16 @@ PrefabInstance:
     - target: {fileID: 6357514285928296914, guid: 4521ddf778814c546b4a53a64273e5d2,
         type: 3}
       propertyPath: m_Name
-      value: Button Text_1
+      value: Button - Flappy bird
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6357514285928296914, guid: 4521ddf778814c546b4a53a64273e5d2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 48781805}
   m_SourcePrefab: {fileID: 100100000, guid: 4521ddf778814c546b4a53a64273e5d2, type: 3}
 --- !u!224 &48781802 stripped
 RectTransform:
@@ -467,12 +471,33 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 48781801}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 48781804}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &48781804 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6357514285928296914, guid: 4521ddf778814c546b4a53a64273e5d2,
+    type: 3}
+  m_PrefabInstance: {fileID: 48781801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &48781805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48781804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbae21ea7e3491d47b31f907f35e0281, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneToLoad:
+    _sceneAsset: {fileID: 102900000, guid: c02d645b15a310c499a27e26c4819b95, type: 3}
+    _sceneName: FlappyBird
 --- !u!1 &75139383
 GameObject:
   m_ObjectHideFlags: 0
@@ -2795,7 +2820,7 @@ PrefabInstance:
     - target: {fileID: 2005212985874414670, guid: 4521ddf778814c546b4a53a64273e5d2,
         type: 3}
       propertyPath: m_text
-      value: FORTUNE
+      value: Whele of fortune
       objectReference: {fileID: 0}
     - target: {fileID: 4882744159073912595, guid: 4521ddf778814c546b4a53a64273e5d2,
         type: 3}
@@ -2900,7 +2925,7 @@ PrefabInstance:
     - target: {fileID: 6357514285928296914, guid: 4521ddf778814c546b4a53a64273e5d2,
         type: 3}
       propertyPath: m_Name
-      value: Button Text
+      value: Button - Whele of fortune
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

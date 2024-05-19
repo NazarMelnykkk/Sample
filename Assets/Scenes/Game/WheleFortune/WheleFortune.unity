@@ -906,12 +906,12 @@ PrefabInstance:
     - target: {fileID: 4882744159073912595, guid: 6ae8347a0f7917d4fbb681f9ddbec9d1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -50
+      value: -60
       objectReference: {fileID: 0}
     - target: {fileID: 4882744159073912595, guid: 6ae8347a0f7917d4fbb681f9ddbec9d1,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: -60
       objectReference: {fileID: 0}
     - target: {fileID: 4882744159073912595, guid: 6ae8347a0f7917d4fbb681f9ddbec9d1,
         type: 3}
@@ -4038,12 +4038,22 @@ PrefabInstance:
     - target: {fileID: 7572622468784924403, guid: 5da7c50dcae192e4ea9907882cb447dd,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 7572622468784924403, guid: 5da7c50dcae192e4ea9907882cb447dd,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 7572622468784924403, guid: 5da7c50dcae192e4ea9907882cb447dd,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7572622468784924403, guid: 5da7c50dcae192e4ea9907882cb447dd,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7572622468784924403, guid: 5da7c50dcae192e4ea9907882cb447dd,
         type: 3}
@@ -4083,12 +4093,12 @@ PrefabInstance:
     - target: {fileID: 7572622468784924403, guid: 5da7c50dcae192e4ea9907882cb447dd,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 75
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 7572622468784924403, guid: 5da7c50dcae192e4ea9907882cb447dd,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -75
+      value: -65
       objectReference: {fileID: 0}
     - target: {fileID: 7572622468784924403, guid: 5da7c50dcae192e4ea9907882cb447dd,
         type: 3}

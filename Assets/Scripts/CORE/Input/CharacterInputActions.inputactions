@@ -13,6 +13,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "69be1802-e918-4345-98e1-741a1fbb0ebb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Accept",
+                    "type": "Button",
+                    "id": "b4b02655-ec80-4f0d-8465-9890ecee86db",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -114,6 +132,28 @@
                     "action": "MoveDirection",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "56a82de7-dfac-4a03-8bcf-263c1f5fc1fe",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "eee96817-2283-42a5-832f-c51cfd9ec056",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Accept",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
