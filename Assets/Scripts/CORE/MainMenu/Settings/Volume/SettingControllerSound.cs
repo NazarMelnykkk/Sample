@@ -24,7 +24,7 @@ public class SettingControllerSound : SettingControllerBase
 
     private void SetVolume(SoundType soundType, float value) 
     {
-        AudioHandler.Instance.SetVolume(soundType, value);
+        AudioHandler.Instance.SetVolumeByType(soundType, value);
     }
 
     public float GetVolume(SoundType soundType)

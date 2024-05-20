@@ -63,56 +63,6 @@ public class AudioHandler : MonoBehaviour, IDataPersistence
         }
     }
 
-    public void ToggleSound(SoundType type)
-    {
-        if (type == SoundType.Master)
-        {       
-            return;
-        }
-
-        AudioSource audioSource = GetAudioSourceByType(type);
-
-        if (audioSource != null)
-        {
-            audioSource.mute = !audioSource.mute;
-        }
-    }
-
-    public void SetVolume(SoundType type, float volume)
-    {
-        if (type == SoundType.Master)
-        {
-            AudioListener.volume = volume;
-            return;
-        }
-
-        AudioSource audioSource = GetAudioSourceByType(type);
-        if (audioSource != null)
-        {
-            audioSource.volume = volume;
-        }
-    }
-
-    public float GetVolumeByType(SoundType type)
-    {
-        switch (type)
-        {
-            case SoundType.Master:
-                return AudioListener.volume;
-            case SoundType.UI:
-                return _uiAudioSource.volume;
-            case SoundType.Music:
-                return _musicAudioSource.volume;
-            case SoundType.SFX:
-                return _SFXAudioSource.volume;
-            case SoundType.Ambient:
-                return _ambientAudioSource.volume;
-            default:
-                Debug.LogError($"Unknown sound type {type}");
-                return 0f;
-        }
-    }
-
     private void SetRandomPithcValue(AudioSource audioSource, Sound sound)
     {
         audioSource.pitch = UnityEngine.Random.Range(sound.MinPitch, sound.MaxPitch);
@@ -135,6 +85,52 @@ public class AudioHandler : MonoBehaviour, IDataPersistence
         }
 
         return foundSoundConfig.Sound;
+    }
+
+    public float GetVolumeByType(SoundType type)
+    {
+        switch (type)
+        {
+            case SoundType.Master:
+                return AudioListener.volume;
+            case SoundType.UI:
+                return _uiAudioSource.volume;
+            case SoundType.Music:
+                return _musicAudioSource.volume;
+            case SoundType.SFX:
+                return _SFXAudioSource.volume;
+            case SoundType.Ambient:
+                return _ambientAudioSource.volume;
+            default:
+                Debug.LogError($"Unknown sound type {type}");
+                return 0f;
+        }
+    }
+
+    public void SetVolumeByType(SoundType type, float volume)
+    {
+        switch (type)
+        {
+            case SoundType.Master:
+                AudioListener.volume = volume;
+                break;
+
+            case SoundType.UI:
+                _uiAudioSource.volume = volume;
+                break;
+
+            case SoundType.Music:
+                _musicAudioSource.volume = volume;
+                break;
+
+            case SoundType.SFX:
+                _SFXAudioSource.volume = volume;
+                break;
+
+            case SoundType.Ambient:
+                _ambientAudioSource.volume = volume;
+                break;
+        }
     }
 
     private SoundConfig[] GetSoundsArrayByType(SoundType type)
@@ -188,15 +184,7 @@ public class AudioHandler : MonoBehaviour, IDataPersistence
                     data.SoundsData.SoundVolumeData.Remove(id);
                 }
 
-                if (type == SoundType.Master)
-                {
-                    soundData = new SoundData(AudioListener.volume);
-                }
-                else
-                {
-                    soundData = new SoundData(GetAudioSourceByType(type).volume);
-                }
-
+                soundData = new SoundData(GetVolumeByType(type));
                 data.SoundsData.SoundVolumeData.Add(id, soundData);
             }
         }
@@ -212,16 +200,7 @@ public class AudioHandler : MonoBehaviour, IDataPersistence
 
                 data.SoundsData.SoundVolumeData.TryGetValue(id, out soundData);
 
-                if (type == SoundType.Master)
-                {
-                    AudioListener.volume = soundData.Volume;
-                }
-                else
-                {
-                    AudioSource audioSource = GetAudioSourceByType(type);
-                    audioSource.volume = soundData.Volume;
-                }
-
+                SetVolumeByType(type, soundData.Volume);
             }
         }
     }

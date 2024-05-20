@@ -6,13 +6,19 @@ public class ScoreViewController : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _score;
 
-    private int _currentScore;
+    [SerializeField] private int _currentScore;
 
     public Action OnScoreChangeEvent;
 
-    private void ChangeValue(int value)
+    private void Start()
+    {
+        DrawView();
+    }
+
+    public void ChangeValue(int value)
     {
         _currentScore += value;
+        DrawView();
         OnScoreChangeEvent?.Invoke();
 
         CoinHandler.Instance.AddCoins(value);

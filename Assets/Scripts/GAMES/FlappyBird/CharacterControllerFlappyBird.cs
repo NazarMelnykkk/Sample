@@ -4,7 +4,6 @@ namespace FlappyBird
 {
     public class CharacterControllerFlappyBird : MonoBehaviour
     {
-
         [Header("Physics")]
         private float _gravity = -9.8f;
         private float strenght = 5f;

@@ -1,9 +1,9 @@
 
 public enum SoundType
 {
-    Master,
     UI,
     Music,
     Ambient,
-    SFX
+    SFX,
+    Master,
 }
