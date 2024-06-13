@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -12,7 +11,7 @@ public class ObjectPersistenceHandler : DataPersistenceHandlerBase
         base.Awake();
     }
 
-    protected override void LoadGame()
+    public override void LoadGame()
     {
         _gameData = _fileDataHandler.Load(CurrentProfileID);
 
@@ -29,7 +28,7 @@ public class ObjectPersistenceHandler : DataPersistenceHandlerBase
         }
     }
 
-    protected override void SaveGame()
+    public override void SaveGame()
     {
         if (_gameData == null)
         {

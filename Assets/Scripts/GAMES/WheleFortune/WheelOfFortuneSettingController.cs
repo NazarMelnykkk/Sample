@@ -71,15 +71,17 @@ namespace WheleOfFortune
         {
             if (data != null)
             {
-                Debug.Log("SAVING!!!");
                 WheelFortuneSettingData wheleData;
 
                 wheleData = new WheelFortuneSettingData(WheelSize, RotatePower, StoppingPower, RandomizationCoefficient);
 
-                data.WheelFortuneSettingsData.WheelFortuneData.Remove(name);
+                if (data.WheelFortuneSettingsData.WheelFortuneData.ContainsKey(name) == true)
+                {
+                    data.WheelFortuneSettingsData.WheelFortuneData.Remove(name);
+                }
+
                 data.WheelFortuneSettingsData.WheelFortuneData.Add(name, wheleData);
 
-                Debug.Log("SAVING222");
             }
         }
 
@@ -93,7 +95,6 @@ namespace WheleOfFortune
                 if (wheleData != null)
                 {
                     WheelSize = wheleData.Size;
-
                     RotatePower = wheleData.RotatePower;
                     StoppingPower = wheleData.StoppingPower;
                     RandomizationCoefficient = wheleData.RandomizationCoefficient;

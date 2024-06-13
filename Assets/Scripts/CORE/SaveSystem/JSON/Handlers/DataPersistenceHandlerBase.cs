@@ -23,7 +23,7 @@ public class DataPersistenceHandlerBase : MonoBehaviour
         _gameData = new GameData();
     }
 
-    protected virtual void LoadGame()
+    public virtual void LoadGame()
     {
         _gameData = _fileDataHandler.Load(CurrentProfileID);
 
@@ -40,7 +40,7 @@ public class DataPersistenceHandlerBase : MonoBehaviour
         }
     }
 
-    protected virtual void SaveGame()
+    public virtual void SaveGame()
     {
         if (_gameData == null)
         {

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sound:
     Name: Tick2
-    Type: 4
+    Type: 3
     AudioClip: {fileID: 8300000, guid: 6faaf0d61c7a8c343abfd3c2a1df5020, type: 3}
     MinPitch: 0.9
     MaxPitch: 1.1

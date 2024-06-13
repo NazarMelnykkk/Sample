@@ -920,7 +920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 1085326325}
-  _soundType: 2
+  _soundType: 1
   _controller: {fileID: 1070794988}
 --- !u!1001 &174682802
 PrefabInstance:
@@ -1736,7 +1736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 1496720171}
-  _soundType: 0
+  _soundType: 4
   _controller: {fileID: 1070794988}
 --- !u!1 &525523954
 GameObject:
@@ -3026,7 +3026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 2142528920}
-  _soundType: 4
+  _soundType: 3
   _controller: {fileID: 1070794988}
 --- !u!1 &1070794982
 GameObject:
@@ -3560,7 +3560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 1749340841}
-  _soundType: 3
+  _soundType: 2
   _controller: {fileID: 1070794988}
 --- !u!1 &1259961591
 GameObject:
@@ -3761,6 +3761,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1279934399}
+    - targetCorrespondingSourceObject: {fileID: 6357514285928296914, guid: 4521ddf778814c546b4a53a64273e5d2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1279934400}
   m_SourcePrefab: {fileID: 100100000, guid: 4521ddf778814c546b4a53a64273e5d2, type: 3}
 --- !u!224 &1279934397 stripped
 RectTransform:
@@ -3787,6 +3791,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _container: {fileID: 1584387660}
+--- !u!114 &1279934400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279934398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb6a1b45ef0c7240af2c2edad4d5687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistenceHandler: {fileID: 0}
+  _backToMenu: {fileID: 1279934399}
 --- !u!1 &1378401992
 GameObject:
   m_ObjectHideFlags: 0
@@ -4406,7 +4424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 1070950562}
-  _soundType: 1
+  _soundType: 0
   _controller: {fileID: 1070794988}
 --- !u!1 &1584387656
 GameObject:
