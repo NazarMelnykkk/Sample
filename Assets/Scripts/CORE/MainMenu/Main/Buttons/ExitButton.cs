@@ -1,5 +1,5 @@
 using UnityEngine;
-public class ExitButton : ButtonClickedBase
+public class ExitButton : ButtonCustomBase
 {
     public override void Click()
     {

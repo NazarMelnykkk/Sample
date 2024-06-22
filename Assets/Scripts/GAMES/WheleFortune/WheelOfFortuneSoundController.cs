@@ -63,7 +63,7 @@ namespace WheleOfFortune
         public void PlayTickSound()
         {
             int randomIndex = UnityEngine.Random.Range(0, _tickSounds.Count);
-            AudioHandler.Instance.PlaySound(_tickSounds[randomIndex]);
+            SystemLinkHolder.Instance.AudioHandler.PlaySound(_tickSounds[randomIndex]);
         }
     }
 

@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace WheleOfFortune 
 {
-    public class ButtonSpin : ButtonClickedBase
+    public class ButtonSpin : ButtonCustomBase
     {
         [Header("Components")]
         [SerializeField] private WheelOfFortuneController _wheelOfFortuneController;

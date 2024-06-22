@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ButtonEnable : ButtonClickedBase
+public class ButtonEnable : ButtonCustomBase
 {
     [SerializeField] private UIContainerController _container;
     public override void Click()

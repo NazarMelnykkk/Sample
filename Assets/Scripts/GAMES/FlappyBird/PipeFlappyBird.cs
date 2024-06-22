@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace FlappyBird
 {
-    public class Pipe : MonoBehaviour, IMovable
+    public class PipeFlappyBird : MonoBehaviour, IMovable
     {
         [SerializeField] private float _speed = 0.8f;
 

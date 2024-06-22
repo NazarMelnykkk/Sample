@@ -6,7 +6,7 @@ using UnityEngine.UI;
 /// basic component for a button
 /// </summary>
 [RequireComponent(typeof(Button))]
-public class ButtonClickedBase : MonoBehaviour
+public class ButtonCustomBase : MonoBehaviour
 {
 
     protected Button Button;

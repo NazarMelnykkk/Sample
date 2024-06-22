@@ -18,6 +18,6 @@ public class CoinSoundController : MonoBehaviour
     private void PlaySound()
     {
         Debug.Log("SOUND");
-        AudioHandler.Instance.PlaySound(_sound);
+        SystemLinkHolder.Instance.AudioHandler.PlaySound(_sound);
     }
 }

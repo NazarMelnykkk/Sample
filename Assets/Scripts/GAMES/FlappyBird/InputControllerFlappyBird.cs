@@ -9,12 +9,12 @@ namespace FlappyBird
 
         private void OnEnable()
         {
-            InputController.Instance.OnJumpPerformedEvent += Jump;
+            SystemLinkHolder.Instance.InputController.OnJumpPerformedEvent += Jump;
         }
 
         private void OnDisable()
         {
-            InputController.Instance.OnJumpPerformedEvent -= Jump;
+            SystemLinkHolder.Instance.InputController.OnJumpPerformedEvent -= Jump;
         }
 
         private void Jump()

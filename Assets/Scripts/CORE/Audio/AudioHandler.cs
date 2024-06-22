@@ -2,31 +2,20 @@ using System;
 using UnityEngine;
 using static SoundsData;
 
+
 public class AudioHandler : MonoBehaviour, IDataPersistence
 {
-    public static AudioHandler Instance;
-
-    [SerializeField] private SoundConfig[] _ui;
-    [SerializeField] private SoundConfig[] _musics;
-    [SerializeField] private SoundConfig[] _SFX;
-    [SerializeField] private SoundConfig[] _ambients;
-
+    [Header("AUDIO SOURCE")]
     [SerializeField] private AudioSource _uiAudioSource;
     [SerializeField] private AudioSource _musicAudioSource;
     [SerializeField] private AudioSource _SFXAudioSource;
     [SerializeField] private AudioSource _ambientAudioSource;
 
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+    [Header("SOUNDS")]
+    [SerializeField] private SoundConfig[] _ui;
+    [SerializeField] private SoundConfig[] _musics;
+    [SerializeField] private SoundConfig[] _SFX;
+    [SerializeField] private SoundConfig[] _ambients;
 
     public void PlaySound(SoundType type, string soundID)
     {

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ButtonSoundController : MonoBehaviour
 {
-    [SerializeField] private List<ButtonClickedBase> _sounds;
+    [SerializeField] private List<ButtonCustomBase> _sounds;
 
     [Header("Sound")]
     private string _soundID = "UIClick";
@@ -27,6 +27,6 @@ public class ButtonSoundController : MonoBehaviour
     }
     private void PlaySound()
     {
-        AudioHandler.Instance.PlaySound(_soundType, _soundID);
+        SystemLinkHolder.Instance.AudioHandler.PlaySound(_soundType, _soundID);
     }
 }

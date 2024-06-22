@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PageController : MonoBehaviour
 {
-    List<ButtonClickedBase> _buttons;
+    List<ButtonCustomBase> _buttons;
     List<UIContainerController> _container;
 
     

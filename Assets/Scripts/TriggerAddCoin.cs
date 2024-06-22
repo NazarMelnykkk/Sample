@@ -14,7 +14,6 @@ public class TriggerAddCoin : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("121231");
         if (other.gameObject.layer == LayerMask.NameToLayer(_triggerLayerName))
         {
             Debug.Log("Coin collected");

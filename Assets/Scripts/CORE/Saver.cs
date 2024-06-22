@@ -3,7 +3,7 @@ using UnityEngine;
 public class Saver : MonoBehaviour
 {
     [SerializeField] private ObjectPersistenceHandler _persistenceHandler;
-    [SerializeField] private ButtonClickedBase _backToMenu;
+    [SerializeField] private ButtonCustomBase _backToMenu;
 
     private void OnEnable()
     {

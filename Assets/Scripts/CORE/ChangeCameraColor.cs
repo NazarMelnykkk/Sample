@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class —hange—amera—olor : MonoBehaviour
+public class ChangeCameraColor : MonoBehaviour
 {
     [SerializeField] private Color _color;
 

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ButtonSceneLoader : ButtonClickedBase
+public class ButtonSceneLoader : ButtonCustomBase
 {
     [SerializeField] private SceneField _sceneToLoad;
 

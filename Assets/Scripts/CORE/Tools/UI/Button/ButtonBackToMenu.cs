@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ButtonBackToMenu : ButtonClickedBase
+public class ButtonBackToMenu : ButtonCustomBase
 {
     [SerializeField] private SceneField _mainMenu;
 
